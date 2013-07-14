@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="LayerCake.UI.Controls.PropertyGroupHeader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="46" d:DesignWidth="433"
+             Margin="5">
+    <Border Grid.Row="0" Margin="5" BorderBrush="Gainsboro" Background="Gainsboro" CornerRadius="10" Padding="5">
+        <TextBlock FontWeight="Bold" 
+                   Text="{Binding Path=GroupName, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"/>
+    </Border>
+</UserControl>

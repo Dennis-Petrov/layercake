@@ -1,0 +1,102 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:LayerCake.UI.Controls">
+
+    <!-- Конвертер для определения, есть ли ячейка с фокусом ввода в сетке -->
+    <local:DataGridCellInfoToBooleanConverter x:Key="DataGridCellInfoToBooleanConverter"/>
+
+    <!-- Стили ячеек -->
+    <!-- Стиль ячейки по умолчанию -->
+    <Style TargetType="DataGridCell" x:Key="DefaultCellStyle">
+        <Style.Resources>
+            <ResourceDictionary Source="pack://application:,,,/LayerCake.UI.Controls;component/Styles/ItemsBrushes.xaml"/>
+        </Style.Resources>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Стиль неактивной ячейки -->
+    <Style TargetType="DataGridCell" BasedOn="{StaticResource DefaultCellStyle}" x:Key="InactiveSelectedCellStyle" >
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Стили строк -->
+    <!-- Базовый стиль -->
+    <Style TargetType="DataGridRow" x:Key="BaseRowStyle">
+        <Style.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/LayerCake.UI.Controls;component/Styles/ItemsBrushes.xaml"/>
+                    <ResourceDictionary Source="pack://application:,,,/LayerCake.UI.Controls;component/Styles/Border.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Style.Resources>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
+    </Style>
+
+    <!-- Стиль строки по умолчанию -->
+    <Style TargetType="DataGridRow" BasedOn="{StaticResource BaseRowStyle}" x:Key="DefaultRowStyle">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="BorderBrush" Value="#adc6e5"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Стиль неактивной строки -->
+    <Style TargetType="DataGridRow" BasedOn="{StaticResource BaseRowStyle}" x:Key="InactiveSelectedRowStyle">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="BorderBrush" Value="LightGray"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Стиль сетки -->
+    <Style TargetType="DataGrid">
+        <Setter Property="SelectionUnit" Value="FullRow"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="AlternatingRowBackground" Value="AliceBlue"/>
+        <Setter Property="GridLinesVisibility" Value="None"/>
+        <Setter Property="MinRowHeight" Value="23"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        
+        <!-- Стили задаем через вспомогательное присоединенное свойство (обходим баг в WPF) -->
+        <Setter Property="local:DataGridFocusBehavior.CellStyle" Value="{StaticResource DefaultCellStyle}"/>
+        <Setter Property="local:DataGridFocusBehavior.RowStyle" Value="{StaticResource DefaultRowStyle}"/>
+                
+        <!-- Присоединенные свойства для отлова потери фокуса ввода -->
+        <Setter Property="local:DataGridFocusBehavior.HasFocusedCell" 
+                Value="{Binding CurrentCell, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource DataGridCellInfoToBooleanConverter}}"/>
+        <Setter Property="local:DataGridFocusBehavior.IsParentWindowActive"
+                Value="{Binding IsActive, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
+
+        <Style.Triggers>
+            <Trigger Property="local:DataGridFocusBehavior.IsParentWindowActive" Value="False">
+                <Setter Property="local:DataGridFocusBehavior.CellStyle" Value="{StaticResource InactiveSelectedCellStyle}"/>
+                <Setter Property="local:DataGridFocusBehavior.RowStyle" Value="{StaticResource InactiveSelectedRowStyle}"/>
+            </Trigger>
+            <Trigger Property="local:DataGridFocusBehavior.HasFocusedCell" Value="False">
+                <Setter Property="local:DataGridFocusBehavior.CellStyle" Value="{StaticResource InactiveSelectedCellStyle}"/>
+                <Setter Property="local:DataGridFocusBehavior.RowStyle" Value="{StaticResource InactiveSelectedRowStyle}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

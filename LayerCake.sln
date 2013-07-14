@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{390AACD9-E937-4F26-9D72-80111D80F71C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9995A675-F39D-4492-9C92-ADAE457F8419}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{5ECF4187-3F13-408B-8171-FD1C1C31FE01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Services", "UI.Services\UI.Services.csproj", "{16BA69B8-359F-4B4C-BEF0-7263B682A094}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Controls", "UI.Controls\UI.Controls.csproj", "{AA62BB47-12D6-458C-8A52-D4DF6D40F62A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Services.Implementations", "UI.Services.Implementations\UI.Services.Implementations.csproj", "{7CA45BA5-6FDE-41E2-90D4-6EAAB814EF9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Communication", "Communication\Communication.csproj", "{B1167794-C8F4-4E0E-BD2B-95D607190350}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Bootstrapper", "UI.Bootstrapper\UI.Bootstrapper.csproj", "{2E5E68A1-C1AD-4174-A7A8-8133D07E01D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{390AACD9-E937-4F26-9D72-80111D80F71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{390AACD9-E937-4F26-9D72-80111D80F71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{390AACD9-E937-4F26-9D72-80111D80F71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{390AACD9-E937-4F26-9D72-80111D80F71C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECF4187-3F13-408B-8171-FD1C1C31FE01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECF4187-3F13-408B-8171-FD1C1C31FE01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECF4187-3F13-408B-8171-FD1C1C31FE01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECF4187-3F13-408B-8171-FD1C1C31FE01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16BA69B8-359F-4B4C-BEF0-7263B682A094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16BA69B8-359F-4B4C-BEF0-7263B682A094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16BA69B8-359F-4B4C-BEF0-7263B682A094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16BA69B8-359F-4B4C-BEF0-7263B682A094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA62BB47-12D6-458C-8A52-D4DF6D40F62A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA62BB47-12D6-458C-8A52-D4DF6D40F62A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA62BB47-12D6-458C-8A52-D4DF6D40F62A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA62BB47-12D6-458C-8A52-D4DF6D40F62A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CA45BA5-6FDE-41E2-90D4-6EAAB814EF9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CA45BA5-6FDE-41E2-90D4-6EAAB814EF9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CA45BA5-6FDE-41E2-90D4-6EAAB814EF9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CA45BA5-6FDE-41E2-90D4-6EAAB814EF9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1167794-C8F4-4E0E-BD2B-95D607190350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1167794-C8F4-4E0E-BD2B-95D607190350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1167794-C8F4-4E0E-BD2B-95D607190350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1167794-C8F4-4E0E-BD2B-95D607190350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E5E68A1-C1AD-4174-A7A8-8133D07E01D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E5E68A1-C1AD-4174-A7A8-8133D07E01D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E5E68A1-C1AD-4174-A7A8-8133D07E01D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E5E68A1-C1AD-4174-A7A8-8133D07E01D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

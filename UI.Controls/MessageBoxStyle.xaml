@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:LayerCake.UI.Controls"
+                    xmlns:extToolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=WPFToolkit.Extended">
+    <Style TargetType="{x:Type extToolkit:MessageBox}">
+        <Setter Property="YesButtonContent" Value="{x:Static local:ControlsResources.MB_Yes}" />
+        <Setter Property="NoButtonContent" Value="{x:Static local:ControlsResources.MB_No}" />
+        <Setter Property="CancelButtonContent" Value="{x:Static local:ControlsResources.MB_Cancel}" />
+    </Style>
+</ResourceDictionary>
